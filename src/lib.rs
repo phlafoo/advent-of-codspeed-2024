@@ -1,4 +1,5 @@
 pub mod day9;
+pub mod day10;
 
 #[macro_use]
 extern crate aoc_runner_derive;
