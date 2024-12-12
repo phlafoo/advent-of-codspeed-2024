@@ -32,7 +32,7 @@ pub fn part1(input: &str) -> impl std::fmt::Display {
                     continue;
                 }
                 let n = n as usize;
-                if visited[n] || n >= input.len() {
+                if n >= input.len() || visited[n] {
                     continue;
                 }
                 if input[n] == input[s] - 1 {
