@@ -116,36 +116,9 @@ pub unsafe fn inner_part2(input: &[u8]) -> i32 {
             sy = s;
         }
     }
-    let sx = sx as i32;
-    let sy = sy as i32;
-
-    // We need to get to this equation:
-    //   R = (fw * 101) + (fh * 103)
-    // Where:
-    //   103 * fh = sx (mod 101)
-    //   101 * fw = sy (mod 103)
-    // =>
-    //    2 * fh = sx (mod 101)
-    //   -2 * fw = sy (mod 103)
-    // Therefore if sx is even, then we have:
-    //   fh = sx / 2
-    // Otherwise, since width is odd and odd + odd = even, we would have:
-    //   fh = (sx + 101) / 2
-    // Same applies to fw except with -2 instead of 2.
-
-    let fh = if sx & 1 == 0 {
-        (sx) / 2
-    } else {
-        (sx + WIDTH) / 2
-    };
-
-    let fw = if sy & 1 == 0 {
-        (sy) / 2
-    } else {
-        (sy - HEIGHT).abs() / 2
-    };
-
-    (fw * WIDTH + fh * HEIGHT).rem_euclid(WIDTH * HEIGHT)
+    // Credit to /u/i_have_no_biscuits for this simplified equation 
+    let k = (51 * (sy as i32 - sx as i32)).rem_euclid(HEIGHT);
+    sx as i32 + k * WIDTH
 }
 
 #[derive(Debug, Default)]
