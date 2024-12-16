@@ -150,7 +150,7 @@ unsafe fn inner_part2(input: &[u8]) -> usize {
                         }
                         i -= dir;
                     },
-                    BOX_LEFT | BOX_RIGHT => i += dir,
+                    BOX_LEFT | BOX_RIGHT => i += 2 * dir,
                     WALL => break,
                     _ => unreachable!(),
                 }
