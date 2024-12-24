@@ -8,6 +8,7 @@ pub mod day13;
 pub mod day14;
 pub mod day15;
 pub mod day17;
+pub mod day23;
 
 #[macro_use]
 extern crate aoc_runner_derive;
