@@ -6,7 +6,7 @@ pub fn part1(input: &str) -> usize {
 }
 // 1046
 
-pub fn part2(input: &str) -> impl std::fmt::Display {
+pub fn part2(input: &str) -> usize {
     unsafe { inner_part2(input.as_bytes()) }
 }
 // de,id,ke,ls,po,sn,tf,tl,tm,uj,un,xw,yz
